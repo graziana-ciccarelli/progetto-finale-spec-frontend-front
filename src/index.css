@@ -16,7 +16,7 @@ nav {
   padding: 15px 20px;
   background-color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  flex-wrap: wrap; /* per renderla responsive */
+  flex-wrap: wrap;
 }
 
 /* Links with animated underline */
