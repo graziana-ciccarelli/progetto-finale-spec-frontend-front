@@ -1,0 +1,547 @@
+/* General Body and Font Styles */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f2f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navigation Bar Styles */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  padding: 15px 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  flex-wrap: wrap;
+}
+
+/* Links with animated underline */
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 600;
+  font-size: 1.1em;
+  padding: 8px 15px;
+  border-radius: 6px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Animated underline effect */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  width: 0%;
+  height: 3px;
+  background-color: #007bff;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* On hover, animate underline to full width */
+nav a:hover::after,
+nav a.active::after {
+  width: 100%;
+}
+
+/* Change text color on hover and active */
+nav a:hover,
+nav a.active {
+  color: #0056b3;
+}
+
+/* Headings Styles */
+h1, h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 2.2em;
+}
+
+/* Form Elements Styles (Input, Select) */
+input, select {
+  padding: 10px 12px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  min-width: 150px;
+}
+
+input:focus, select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Styling degli option per aumentare lo spazio */
+select option {
+  padding: 8px 12px;
+  line-height: 1.5;
+}
+
+/* Buttons General Style */
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Smartphone List Container - Flexbox */
+ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Smartphone List Items */
+li {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 280px;
+  transition: transform 0.2s ease-in-out;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+li:hover {
+  transform: translateY(-5px);
+}
+
+li a {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  color: #34495e;
+  text-decoration: none;
+  font-weight: bold;
+  overflow-wrap: break-word;
+}
+
+/* Images inside list items */
+.smartphone-list-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  background-color: #fcfcfc;
+}
+
+/* Prices in list items - forced black color */
+.smartphone-list-price {
+  font-size: 1.1em;
+  color: #333 !important;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* Buttons inside list items - uniform width and spacing */
+li button {
+  width: 100%;
+  max-width: 240px;
+  padding: 10px 0;
+  margin-top: 8px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+}
+
+/* Buttons colors - maintain original colors */
+li button:nth-of-type(1) {
+  background-color: #28a745;
+  color: white;
+}
+
+li button:nth-of-type(1):hover {
+  background-color: #218838;
+}
+
+li button:nth-of-type(2) {
+  background-color: #17a2b8;
+  color: white;
+}
+
+li button:nth-of-type(2):hover {
+  background-color: #138496;
+}
+
+li button.remove-favorite {
+  background-color: #dc3545;
+  color: white;
+}
+
+li button.remove-favorite:hover {
+  background-color: #c82333;
+}
+
+/* Smartphone Card Styles */
+.smartphone-card {
+  background-color: #ffffff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+.smartphone-card h3 {
+  color: #2c3e50;
+  font-size: 1.5em;
+  margin-bottom: 8px;
+  width: 100%;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.smartphone-card p {
+  font-size: 0.85em;
+  line-height: 1.3;
+  margin: 6px 0;
+  color: #555;
+  max-width: 100%;
+  text-align: justify;
+}
+
+/* Images inside cards */
+.smartphone-card-image {
+  max-width: 90%;
+  height: 160px;
+  object-fit: contain;
+  display: block;
+  margin: 12px auto 18px auto;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background-color: #fdfdfd;
+}
+
+/* Actions buttons inside cards */
+.smartphone-card .actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.smartphone-card .actions button {
+  padding: 12px 18px;
+  font-size: 1em;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
+}
+
+.smartphone-card .actions button:first-child {
+  background-color: #28a745;
+  color: white;
+}
+
+.smartphone-card .actions button:first-child:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+}
+
+.smartphone-card .actions button.remove-favorite {
+  background-color: #dc3545;
+  color: white;
+}
+
+.smartphone-card .actions button.remove-favorite:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+.smartphone-card .actions button:last-child {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.smartphone-card .actions button:last-child:hover {
+  background-color: #138496;
+  transform: translateY(-2px);
+}
+
+.smartphone-card .actions button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Comparator container */
+.comparator-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: auto;
+  flex-wrap: wrap;
+  border-radius: 12px;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+/* Comparator cards sizing */
+.comparator-container .smartphone-card {
+  flex: 1 1 45%;
+  box-sizing: border-box;
+  min-width: 260px;
+  max-width: 450px;
+}
+
+/* Remove from Compare button */
+.comparator-container .smartphone-card button {
+  background-color: #ffc107;
+  color: #333;
+  margin-top: 20px;
+  padding-left: 24px;  /* aumento padding per evitare testo a contatto */
+  padding-right: 24px; /* aumento padding per evitare testo a contatto */
+  white-space: nowrap; /* testo non va a capo */
+}
+
+.comparator-container .smartphone-card button:hover {
+  background-color: #e0a800;
+}
+
+/* ** STILI ETICHETTE NEL COMPARATOR COME DETTAGLIO ** */
+.comparator-container .smartphone-card p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+  flex-wrap: wrap; /* permette di andare a capo se serve */
+}
+
+.comparator-container .smartphone-card p strong {
+  flex: 0 0 140px;
+  font-weight: 600;
+  color: #007bff;
+  white-space: nowrap; /* mantiene testo su una riga */
+}
+
+.comparator-container .smartphone-card p span {
+  flex: 1;
+  color: #333;
+  white-space: nowrap; /* mantiene insieme numero e unità */
+}
+
+/* Empty State Message */
+p {
+  text-align: center;
+  font-size: 1.1em;
+  color: #777;
+  margin-top: 50px;
+}
+
+/* Smartphone Detail Page Styles */
+.smartphone-detail {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  color: #2c3e50;
+  box-sizing: border-box;
+}
+
+.smartphone-detail h1.smartphone-title {
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  text-align: center;
+  max-width: 100%;
+  padding: 0 20px;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Image dimensionata correttamente, evita overflow */
+.smartphone-image {
+  display: block;
+  max-width: 240px; /* ridotto da 280 a 240 */
+  width: 100%;
+  height: auto;
+  margin: 0 auto 30px auto;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background-color: #fafafa;
+  object-fit: contain;
+}
+
+/* All characteristics aligned */
+.smartphone-detail p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 6px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
+}
+
+.smartphone-detail p strong {
+  flex: 0 0 140px;
+  font-weight: 600;
+  color: #007bff;
+  white-space: nowrap;
+}
+
+.smartphone-detail p span {
+  flex: 1;
+  color: #333;
+  white-space: nowrap; /* numero + unità insieme */
+}
+
+/* Buttons container */
+.smartphone-detail .buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+/* Favorite button */
+.favorite-btn {
+  background-color: #28a745; /* verde */
+  color: white;
+  flex: 1;
+  max-width: 220px;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 12px 24px;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.favorite-btn:hover {
+  background-color: #218838;
+}
+
+.favorite-btn.remove {
+  background-color: #dc3545; /* rosso rimuovi */
+}
+
+.favorite-btn.remove:hover {
+  background-color: #c82333;
+}
+
+/* Compare button */
+.compare-btn {
+  background-color: #17a2b8; /* azzurro */
+  color: white;
+  flex: 1;
+  max-width: 220px;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 12px 24px; /* più padding orizzontale */
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.compare-btn:hover {
+  background-color: #138496;
+}
+
+/* Back link */
+.back-container {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.back-link {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 600;
+  font-size: 1.1em;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav {
+    gap: 15px;
+  }
+  ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  li {
+    width: 90%;
+    max-width: 320px;
+  }
+  .comparator-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .comparator-container .smartphone-card {
+    max-width: 100%;
+  }
+  .smartphone-detail {
+    padding: 20px 15px;
+    margin: 20px auto;
+  }
+  .smartphone-detail h1.smartphone-title {
+    font-size: 1.8em;
+    padding: 0 15px;
+  }
+  .favorite-btn, .compare-btn {
+    max-width: 100%;
+    padding: 12px 20px;
+  }
+}
