@@ -342,7 +342,7 @@ li button.remove-favorite:hover {
   background-color: #e0a800;
 }
 
-/* ** STILI ETICHETTE NEL COMPARATOR COME DETTAGLIO ** */
+/* ** STILI ETICHETTE NEL COMPARATOR  ** */
 .comparator-container .smartphone-card p {
   display: flex;
   align-items: center;
@@ -385,12 +385,12 @@ p {
 
 .smartphone-detail h1.smartphone-title {
   margin-bottom: 30px;
-  font-size: 2em; /* leggermente più piccolo per evitare overflow */
+  font-size: 2em; 
   text-align: center;
-  overflow-wrap: break-word; /* consente il wrapping */
+  overflow-wrap: break-word; 
   word-break: break-word;
   white-space: normal;
-  padding: 0 20px; /* margine interno ai lati */
+  padding: 0 20px; 
   box-sizing: border-box;
   max-width: 100%;
 }
@@ -438,7 +438,7 @@ p {
 
 /* Favorite button */
 .favorite-btn {
-  background-color: #28a745; /* verde */
+  background-color: #28a745; 
   color: white;
   flex: 1;
   max-width: 220px;
@@ -453,7 +453,7 @@ p {
 }
 
 .favorite-btn.remove {
-  background-color: #dc3545; /* rosso rimuovi */
+  background-color: #dc3545; 
 }
 
 .favorite-btn.remove:hover {
@@ -462,7 +462,7 @@ p {
 
 /* Compare button */
 .compare-btn {
-  background-color: #17a2b8; /* azzurro */
+  background-color: #17a2b8; 
   color: white;
   flex: 1;
   max-width: 220px;
@@ -542,6 +542,6 @@ p {
   /* nessun background e nessun bordo */
   background-color: transparent;
   border: none;
-  color: #333; /* puoi cambiare il colore testo se vuoi */
+  color: #333; 
   box-shadow: none;
 }
