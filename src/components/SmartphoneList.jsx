@@ -54,7 +54,7 @@ export default function SmartphoneList() {
 
   const categories = Array.from(new Set(smartphones.map((s) => s.category)));
 
-  // Funzione per aggiungere al comparatore con messaggi multipli
+
   const handleAddToCompare = (smartphone) => {
     const newMessages = [];
 

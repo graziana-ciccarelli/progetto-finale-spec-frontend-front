@@ -24,7 +24,7 @@ export function GlobalContextProvider({ children }) {
     setSmartphones(smartphonesData);
   }, []);
 
-  // ✅ Funzione per aggiungere/rimuovere un preferito
+ 
   const toggleFavorite = (smartphone) => {
     setFavorites((prev) =>
       prev.find((s) => s.id === smartphone.id)
@@ -33,7 +33,7 @@ export function GlobalContextProvider({ children }) {
     );
   };
 
-  // ✅ Funzione per aggiungere uno smartphone al comparatore (massimo 2)
+ 
   const addToCompare = (smartphone) => {
     setCompare((prev) => {
       if (prev.find((s) => s.id === smartphone.id)) return prev;
@@ -42,7 +42,7 @@ export function GlobalContextProvider({ children }) {
     });
   };
 
-  // ✅ Funzione per rimuovere uno smartphone dal comparatore
+  
   const removeFromCompare = (id) => {
     setCompare((prev) => prev.filter((s) => s.id !== id));
   };
