@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
-import SmartphoneList from "./components/SmartphoneList.jsx";
-import SmartphoneDetail from "./components/SmartphoneDetail.jsx";
-import Favorites from "./components/Favorites.jsx";
-import Comparator from "./components/Comparator.jsx";
+import SmartphoneList from "./pages/SmartphoneList.jsx";
+import SmartphoneDetail from "./pages/SmartphoneDetail.jsx";
+import Favorites from "./pages/Favorites.jsx";
+import Comparator from "./pages/Comparator.jsx";
 
 export default function App() {
   return (
