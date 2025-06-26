@@ -6,13 +6,13 @@ export const GlobalContext = createContext();
 export function GlobalContextProvider({ children }) {
   const [smartphones, setSmartphones] = useState([]);
 
-  // ✅ Inizializza i preferiti dal localStorage
+
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem("favorites");
     return saved ? JSON.parse(saved) : [];
   });
 
-  // ✅ Salva i preferiti ogni volta che cambiano
+
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
