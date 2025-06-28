@@ -6,6 +6,15 @@ export default function Favorites() {
   const { favorites, toggleFavorite, addToCompare, compare } = useContext(GlobalContext);
   const [messages, setMessages] = useState([]);
 
+ 
+  const formatPrice = (price) =>
+    price.toLocaleString("it-IT", {
+      style: "currency",
+      currency: "EUR",
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+
   const handleAddToCompare = (smartphone) => {
     const newMessages = [];
 
@@ -55,9 +64,12 @@ export default function Favorites() {
                   className="smartphone-list-image"
                 />
               )}
-              <Link to={`/smartphones/${smartphone.id}`}>{smartphone.title}</Link> - {smartphone.category}
+              <Link to={`/smartphones/${smartphone.id}`}>
+                {smartphone.title}
+              </Link>{" "}
+              - {smartphone.category}
               <p className="smartphone-list-price">
-                Prezzo: <strong>€{smartphone.price.toLocaleString("it-IT")}</strong>
+                Prezzo: <strong>{formatPrice(smartphone.price)}</strong>
               </p>
               <button
                 onClick={() => toggleFavorite(smartphone)}
@@ -73,7 +85,9 @@ export default function Favorites() {
         </ul>
       )}
 
-      <p><Link to="/">Torna alla lista</Link></p>
+      <p>
+        <Link to="/">Torna alla lista</Link>
+      </p>
     </div>
   );
 }
