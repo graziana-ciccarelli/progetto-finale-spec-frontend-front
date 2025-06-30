@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import smartphonesData from "../data/smartphones.json"; // Assicurati che il percorso sia corretto
+import smartphonesData from "../data/smartphones.json"; 
 
 export const GlobalContext = createContext();
 
