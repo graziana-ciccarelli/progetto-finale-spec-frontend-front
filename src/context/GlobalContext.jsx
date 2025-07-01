@@ -6,12 +6,10 @@ export const GlobalContext = createContext();
 export function GlobalContextProvider({ children }) {
   const [smartphones, setSmartphones] = useState([]);
 
-
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem("favorites");
     return saved ? JSON.parse(saved) : [];
   });
-
 
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
@@ -19,12 +17,10 @@ export function GlobalContextProvider({ children }) {
 
   const [compare, setCompare] = useState([]);
 
-  // Carica i dati degli smartphone all'avvio dell'applicazione
   useEffect(() => {
     setSmartphones(smartphonesData);
   }, []);
 
- 
   const toggleFavorite = (smartphone) => {
     setFavorites((prev) =>
       prev.find((s) => s.id === smartphone.id)
@@ -33,16 +29,15 @@ export function GlobalContextProvider({ children }) {
     );
   };
 
- 
+  
   const addToCompare = (smartphone) => {
     setCompare((prev) => {
-      if (prev.find((s) => s.id === smartphone.id)) return prev;
-      if (prev.length === 2) return [prev[1], smartphone];
+      if (prev.find((s) => s.id === smartphone.id)) return prev; 
+      if (prev.length >= 2) return prev;
       return [...prev, smartphone];
     });
   };
 
-  
   const removeFromCompare = (id) => {
     setCompare((prev) => prev.filter((s) => s.id !== id));
   };
