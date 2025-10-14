@@ -1,4 +1,4 @@
-/* General Body and Font Styles */
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -47,13 +47,13 @@ nav a::after {
   transition: width 0.3s ease;
 }
 
-/* On hover, animate underline to full width */
+
 nav a:hover::after,
 nav a.active::after {
   width: 100%;
 }
 
-/* Change text color on hover and active */
+
 nav a:hover,
 nav a.active {
   color: #0056b3;
@@ -112,7 +112,7 @@ button:active {
   box-shadow: none;
 }
 
-/* Smartphone List Container - Flexbox */
+/* Smartphone List Container */
 ul {
   list-style: none;
   padding: 0;
@@ -167,7 +167,7 @@ li a {
   margin-bottom: 10px;
 }
 
-/* Buttons inside list items - uniform width and spacing */
+/* Buttons inside list items  */
 li button {
   width: 100%;
   max-width: 240px;
@@ -342,7 +342,7 @@ li button.remove-favorite:hover {
   background-color: #e0a800;
 }
 
-/* ** STILI ETICHETTE NEL COMPARATOR  ** */
+/* STILI ETICHETTE NEL COMPARATOR  */
 .comparator-container .smartphone-card p {
   display: flex;
   align-items: center;
@@ -397,9 +397,9 @@ p {
 
 .smartphone-image {
   display: block;
-  width: 100%;      /* si adatta al contenitore */
-  max-width: 280px; /* limite massimo larghezza */
-  height: auto;     /* altezza proporzionale */
+  width: 100%;     
+  max-width: 280px; 
+  height: auto;
   margin: 0 auto 30px auto;
   border-radius: 12px;
   border: 1px solid #ddd;
