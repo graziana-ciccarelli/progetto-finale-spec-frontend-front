@@ -4,58 +4,70 @@ import smartphonesData from "../data/smartphones.json";
 export const GlobalContext = createContext();
 
 export function GlobalContextProvider({ children }) {
-  const [smartphones, setSmartphones] = useState([]);
+  const [smartphones, setSmartphones] = useState([]);
+  
+  const [favorites, setFavorites] = useState(() => {
+    const saved = localStorage.getItem("favorites");
+    return saved ? JSON.parse(saved) : [];
+  });
 
-  const [favorites, setFavorites] = useState(() => {
-    const saved = localStorage.getItem("favorites");
-    return saved ? JSON.parse(saved) : [];
-  });
+  const [compare, setCompare] = useState([]);
 
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
+  useEffect(() => {
+    setSmartphones(smartphonesData);
+  }, []); 
 
-  const [compare, setCompare] = useState([]);
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]); 
 
-  useEffect(() => {
-    setSmartphones(smartphonesData);
-  }, []);
+  const toggleFavorite = (smartphone) => {
+    setFavorites((currentFavorites) => {
+      // Controlla se lo smartphone è già presente
+      const isAlreadyFavorite = currentFavorites.some(s => s.id === smartphone.id);
 
-  const toggleFavorite = (smartphone) => {
-    setFavorites((prev) =>
-      prev.find((s) => s.id === smartphone.id)
-        ? prev.filter((s) => s.id !== smartphone.id)
-        : [...prev, smartphone]
-    );
-  };
+      if (isAlreadyFavorite) {
+        // Se presente, rimuovilo
+        return currentFavorites.filter(s => s.id !== smartphone.id);
+      } else {
+        // Se non presente, aggiungilo
+        return [...currentFavorites, smartphone];
+      }
+    });
+  };
 
-  
-  const addToCompare = (smartphone) => {
-    setCompare((prev) => {
-      if (prev.find((s) => s.id === smartphone.id)) return prev; 
-      if (prev.length >= 2) return prev;
-      return [...prev, smartphone];
-    });
-  };
+  const addToCompare = (smartphone) => {
+    setCompare((currentCompare) => {
+      // Non aggiungere se è già presente
+      if (currentCompare.some(s => s.id === smartphone.id)) return currentCompare; 
+      // Non aggiungere se ci sono già 2 elementi
+      if (currentCompare.length >= 2) return currentCompare; 
+      // Aggiungi lo smartphone
+      return [...currentCompare, smartphone];
+    });
+  };
 
-  const removeFromCompare = (id) => {
-    setCompare((prev) => prev.filter((s) => s.id !== id));
-  };
+  const removeFromCompare = (id) => {
+    setCompare((currentCompare) => 
+      // Filtra e rimuovi l'elemento con l'ID specificato
+      currentCompare.filter(s => s.id !== id)
+    );
+  };
 
-  return (
-    <GlobalContext.Provider
-      value={{
-        smartphones,
-        favorites,
-        toggleFavorite,
-        compare,
-        addToCompare,
-        removeFromCompare,
-      }}
-    >
-      {children}
-    </GlobalContext.Provider>
-  );
+  return (
+    <GlobalContext.Provider
+      value={{
+        smartphones,
+        favorites,
+        toggleFavorite,
+        compare,
+        addToCompare,
+        removeFromCompare,
+      }}
+    >
+      {children} 
+    </GlobalContext.Provider>
+  );
 }
 
 export default GlobalContextProvider;
